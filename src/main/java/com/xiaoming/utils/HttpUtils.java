@@ -144,7 +144,7 @@ public class HttpUtils {
         } catch (Exception e) {
             LOGGER.error("HttpClient exception", e);
         }finally {
-            LOGGER.info("【url request-response】：{}-{}-{}-{}", url, GsonUtil.toJson(paramsMap), GsonUtil.toJson(headerMap), result);
+            LOGGER.info("【url request-response】：{}-{}-{}-{}", url, GsonUtil.getInstance().toJson(paramsMap), GsonUtil.getInstance().toJson(headerMap), result);
         }
 
         shutdownExceptionFuture(futureTask);
@@ -229,7 +229,7 @@ public class HttpUtils {
                 sb.append("&");
             }
         } catch (UnsupportedEncodingException e) {
-            LOGGER.error("【url encode exception ：{}-{}】", url, GsonUtil.toJson(paramsMap), e);
+            LOGGER.error("【url encode exception ：{}-{}】", url, GsonUtil.getInstance().toJson(paramsMap), e);
         }
 
         String fullUrl = sb.toString();

@@ -1,6 +1,7 @@
 package com.xiaoming.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * @author xiaoming
@@ -10,8 +11,14 @@ public class GsonUtil {
 
     private static final Gson GSON = new Gson();
 
-    static String toJson(Object object){
-        return GSON.toJson(object);
+    private static final Gson GSON_DISABLE_HTML_ESCAPING = new GsonBuilder().disableHtmlEscaping().create();
+
+    public static Gson getInstance(){
+        return GSON;
+    }
+
+    public static Gson getGsonDisableHtmlEscaping() {
+        return GSON_DISABLE_HTML_ESCAPING;
     }
 
 }
