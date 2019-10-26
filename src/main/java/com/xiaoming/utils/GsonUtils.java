@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder;
  * @author xiaoming
  * @date 2019-10-13
  */
-public class GsonUtil {
+public class GsonUtils {
 
     private static final Gson GSON = new Gson();
 
