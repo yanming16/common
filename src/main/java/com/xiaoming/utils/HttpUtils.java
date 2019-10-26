@@ -1,7 +1,13 @@
 package com.xiaoming.utils;
 
 import com.google.common.collect.Lists;
-import com.ning.http.client.*;
+import com.ning.http.client.AsyncHttpClient;
+import com.ning.http.client.AsyncHttpClientConfigBean;
+import com.ning.http.client.ListenableFuture;
+import com.ning.http.client.Param;
+import com.ning.http.client.Request;
+import com.ning.http.client.RequestBuilder;
+import com.ning.http.client.Response;
 import com.xiaoming.enums.HttpRequestMethodEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -265,13 +271,12 @@ public class HttpUtils {
      * @param builder
      * @return
      */
-    private static String buildUrl(String url, final Map<String, Object> paramsMap,
+    private static void buildUrl(String url, final Map<String, Object> paramsMap,
             final RequestBuilder builder) {
         if (paramsMap != null && !paramsMap.isEmpty()) {
             url = createUrl(url, paramsMap);
         }
         builder.setUrl(url);
-        return url;
     }
 
     /**
