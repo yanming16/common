@@ -190,8 +190,8 @@ public class HttpUtils {
             LOGGER.error("HttpClient exception", e);
         } finally {
             LOGGER.info("【url request-response】：{}-{}-{}-{}", url,
-                    GsonUtils.getInstance().toJson(paramsMap),
-                    GsonUtils.getInstance().toJson(headerMap), result);
+                    GsonUtils.getGson().toJson(paramsMap),
+                    GsonUtils.getGson().toJson(headerMap), result);
         }
         shutdownExceptionFuture(futureTask);
         return null;
@@ -326,7 +326,7 @@ public class HttpUtils {
             }
         } catch (final UnsupportedEncodingException e) {
             LOGGER.error("【url encode exception ：{}-{}】", url,
-                    GsonUtils.getInstance().toJson(paramsMap), e);
+                    GsonUtils.getGson().toJson(paramsMap), e);
         }
 
         final String fullUrl = sb.toString();

@@ -13,12 +13,11 @@ public class GsonUtils {
 
     private static final Gson GSON_DISABLE_HTML_ESCAPING = new GsonBuilder().disableHtmlEscaping().create();
 
-    public static Gson getInstance(){
+    public static Gson getGson(){
         return GSON;
     }
 
     public static Gson getGsonDisableHtmlEscaping() {
         return GSON_DISABLE_HTML_ESCAPING;
     }
-
 }
