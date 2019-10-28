@@ -5,7 +5,6 @@ import com.xiaoming.https.client.HttpClient;
 import com.xiaoming.https.client.impl.AsyncHttpClient;
 import com.xiaoming.https.client.impl.SyncHttpClient;
 
-import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
 
 /**
@@ -28,11 +27,11 @@ public class HttpClientRegister {
         }
     }
 
-    public SyncHttpClient getSyncHttpClient(String name) {
+    public SyncHttpClient getSyncHttpClient(final String name) {
         return syncHttpClientMap.get(name);
     }
 
-    public AsyncHttpClient getAsyncHttpClient(String name) {
+    public AsyncHttpClient getAsyncHttpClient(final String name) {
         return asyncHttpClientMap.get(name);
     }
 
