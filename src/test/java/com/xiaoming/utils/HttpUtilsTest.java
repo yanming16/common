@@ -16,7 +16,7 @@ public class HttpUtilsTest {
 
     private static Logger LOGGER = LoggerFactory.getLogger(HttpUtilsTest.class);
 
-    private static final String URL = "http://localhost:8004/test/post2";
+    private static final String URL = "http://localhost:8003/test/get";
 
     private static final RateLimiter rateLimiter = RateLimiter.create(10);
 
