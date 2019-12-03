@@ -7,7 +7,12 @@ import lombok.Data;
  * @Date 2019/11/4
  */
 @Data
-public class Person {
+public abstract class Person {
     private String name;
     private int age;
+
+    public void init(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }
