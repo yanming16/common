@@ -1,5 +1,6 @@
 package com.xiaoming.utils;
 
+import com.xiaoming.common.Man;
 import com.xiaoming.common.Person;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class JacksonUtilsTest {
 
     @Test
     public void testDecode() {
-        Person person = new Person();
+        Person person = new Man();
         person.setName("liangyi");
         person.setAge(25);
         System.out.println(JacksonUtils.encode2String(person));
