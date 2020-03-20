@@ -24,6 +24,15 @@
     <dependencyManagement>
         <dependencies>
 
+            <!-- reactor3 -->
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-bom</artifactId>
+                <version>Bismuth-RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- logger -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -128,6 +137,19 @@
     </dependencyManagement>
 
     <dependencies>
+
+        <!-- reactor3 start -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- reactor3 end -->
 
         <!-- logger -->
         <dependency>
