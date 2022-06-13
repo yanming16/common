@@ -1,9 +1,6 @@
 package com.xiaoming.leetcode;
 
-import com.google.gson.Gson;
 import com.xiaoming.utils.GsonUtils;
-
-import java.util.Arrays;
 
 /**
  * @author xiaoming
