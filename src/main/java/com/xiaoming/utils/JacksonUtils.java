@@ -17,14 +17,14 @@ import java.io.IOException;
 public class JacksonUtils {
     private static final Logger LOG = LoggerFactory.getLogger(JacksonUtils.class);
 
-    private final static ObjectMapper objectMapper = new ObjectMapper();
+    private final static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
-        objectMapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
-        objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-        objectMapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
-        objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        OBJECT_MAPPER.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+        OBJECT_MAPPER.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+        OBJECT_MAPPER.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
+        OBJECT_MAPPER.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
+        OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
     private JacksonUtils() {
@@ -32,7 +32,7 @@ public class JacksonUtils {
 
     public static byte[] encode2Bytes(final Object obj) {
         try {
-            return objectMapper.writeValueAsBytes(obj);
+            return OBJECT_MAPPER.writeValueAsBytes(obj);
         } catch (final JsonGenerationException e) {
             LOG.error("encode JsonGenerationException", e);
         } catch (final IOException e) {
@@ -43,7 +43,7 @@ public class JacksonUtils {
 
     public static String encode2String(final Object obj) {
         try {
-            return objectMapper.writeValueAsString(obj);
+            return OBJECT_MAPPER.writeValueAsString(obj);
         } catch (final JsonGenerationException e) {
             LOG.error("encode JsonGenerationException", e);
         } catch (final IOException e) {
@@ -61,7 +61,7 @@ public class JacksonUtils {
      */
     public static <T> T decodeFromString(final String json, final Class<T> valueType) {
         try {
-            return objectMapper.readValue(json, valueType);
+            return OBJECT_MAPPER.readValue(json, valueType);
         } catch (final IOException e) {
             LOG.error("decode error!", e);
         }
@@ -78,7 +78,7 @@ public class JacksonUtils {
     @SuppressWarnings("unchecked")
     public static <T> T decodeFromString(final String json, final TypeReference<T> typeReference) {
         try {
-            return (T) objectMapper.readValue(json, typeReference);
+            return (T) OBJECT_MAPPER.readValue(json, typeReference);
         } catch (final IOException e) {
             LOG.error("decode error!", e);
         }
